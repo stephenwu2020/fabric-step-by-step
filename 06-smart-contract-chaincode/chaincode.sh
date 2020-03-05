@@ -15,16 +15,20 @@ function help(){
 }
 
 function package(){
-  echo package...
+  echo "fetch go dependency"
+  CC_SRC_PATH=/opt/gopath/src/github.com/hyperledger/fabric-samples/chaincode/abstore/go/
+  CC_RUNTIME_LANGUAGE=golang
+  VERSION=1
   docker exec \
-    -e "CC_SRC_PATH=/opt/gopath/src/github.com/hyperledger/fabric-samples/chaincode/abstore/go/" \
-    -e "CC_RUNTIME_LANGUAGE=golang" \
-    -e "VERSION=1" \
-    cli \
-    cd ${CC_SRC_PATH} \
-    GO111MODULE=on go mod vendor \
-    cd - \
-    peer lifecycle chaincode package mycc.tar.gz \
+    -e "CC_SRC_PATH=${CC_SRC_PATH}" \
+    cli bash cd ${CC_SRC_PATH} go mod vendor \
+
+  echo "package chaincode"
+  docker exec \
+    -e "CC_SRC_PATH=${CC_SRC_PATH}" \
+    -e "CC_RUNTIME_LANGUAGE=${CC_RUNTIME_LANGUAGE}" \
+    -e "VERSION=${VERSION}" \
+    cli peer lifecycle chaincode package mycc.tar.gz \
     --path ${CC_SRC_PATH} \
     --lang ${CC_RUNTIME_LANGUAGE} \
     --label fabcar_${VERSION}
