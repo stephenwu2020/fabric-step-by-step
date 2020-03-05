@@ -68,8 +68,7 @@ function setAnchor(){
     -asOrg R1
   # anchor update
   docker exec \
-    -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/r1.demo.com/users/Admin@r1.demo.com/msp" \
-    peer0.r1.demo.com peer channel update \
+    cli peer channel update \
     -o o4.demo.com:7050 \
     -c $CHANNEL_NAME \
     -f /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/R1MSPanchors.tx \
