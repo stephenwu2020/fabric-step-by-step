@@ -28,7 +28,8 @@ function package(){
 }
 
 function install(){
-  echo install...
+  echo "install..."
+  docker exec cli peer lifecycle chaincode install mycc.tar.gz
 }
 
 if [ "$MODE" == "package" ]; then
