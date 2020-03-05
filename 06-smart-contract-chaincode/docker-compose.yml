@@ -97,6 +97,7 @@ services:
         - ./../chaincode/:/opt/gopath/src/github.com/hyperledger/fabric-samples/chaincode
         - ./organizations:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
         - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
+        - ./../chaincode/:/opt/gopath/src/github.com/hyperledger/fabric-samples/chaincode
     depends_on:
       - o4.demo.com
       - peer0.r1.demo.com
