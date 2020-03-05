@@ -49,8 +49,7 @@ function createChan(){
 function joinChan(){
   # join
   docker exec \
-    -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/r1.demo.com/users/Admin@r1.demo.com/msp" \
-    peer0.r1.demo.com peer channel join \
+    cli peer channel join \
     -b /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/${CHANNEL_NAME}.block
   # show info
   showChanInfo
