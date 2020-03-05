@@ -16,9 +16,8 @@ function help(){
 
 function package(){
   echo "fetch go dependency"
-  docker exec \
-    -e "CC_SRC_PATH=/opt/gopath/src/github.com/hyperledger/fabric-samples/chaincode/abstore/go/" \
-    cli bash cd ${CC_SRC_PATH} go mod vendor \
+  docker exec cli bash \
+    -c "cd /opt/gopath/src/github.com/hyperledger/fabric-samples/chaincode/abstore/go/ && go mod vendor"
 
   echo "package chaincode"
   docker exec \
