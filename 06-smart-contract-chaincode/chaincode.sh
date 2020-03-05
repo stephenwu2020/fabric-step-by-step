@@ -20,7 +20,7 @@ function package(){
     -e "CC_SRC_PATH=/opt/gopath/src/github.com/hyperledger/fabric-samples/chaincode/abstore/go/" \
     -e "CC_RUNTIME_LANGUAGE=golang" \
     -e "VERSION=1" \
-    peer lifecycle chaincode package mycc.tar.gz \
+    cli peer lifecycle chaincode package mycc.tar.gz \
     --path ${CC_SRC_PATH} \
     --lang ${CC_RUNTIME_LANGUAGE} \
     --label fabcar_${VERSION}
