@@ -20,6 +20,9 @@ function package(){
     -e "CC_SRC_PATH=/opt/gopath/src/github.com/hyperledger/fabric-samples/chaincode/abstore/go/" \
     -e "CC_RUNTIME_LANGUAGE=golang" \
     -e "VERSION=1" \
+    cd ${CC_SRC_PATH} \
+    GO111MODULE=on go mod vendor \
+    cd - \
     cli peer lifecycle chaincode package mycc.tar.gz \
     --path ${CC_SRC_PATH} \
     --lang ${CC_RUNTIME_LANGUAGE} \
