@@ -1,0 +1,5 @@
+OrdererOrgs:
+  - Name: R4
+    Domain: demo.com
+    Specs:
+      - Hostname: o4
