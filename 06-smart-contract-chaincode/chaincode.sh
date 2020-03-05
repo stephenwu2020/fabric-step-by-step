@@ -21,13 +21,10 @@ function package(){
 
   echo "package chaincode"
   docker exec \
-    -e "CC_SRC_PATH=github.com/hyperledger/fabric-samples/chaincode/abstore/go/" \
-    -e "CC_RUNTIME_LANGUAGE=golang" \
-    -e "VERSION=1" \
     cli peer lifecycle chaincode package mycc.tar.gz \
-    --path ${CC_SRC_PATH} \
-    --lang ${CC_RUNTIME_LANGUAGE} \
-    --label fabcar_${VERSION}
+    --path github.com/hyperledger/fabric-samples/chaincode/abstore/go/ \
+    --lang golang \
+    --label fabcar_1
 }
 
 function install(){
