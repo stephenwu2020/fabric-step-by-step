@@ -21,7 +21,7 @@ function package(){
 
   echo "package chaincode"
   docker exec \
-    -e "CC_SRC_PATH=/opt/gopath/src/github.com/hyperledger/fabric-samples/chaincode/abstore/go/" \
+    -e "CC_SRC_PATH=github.com/hyperledger/fabric-samples/chaincode/abstore/go/" \
     -e "CC_RUNTIME_LANGUAGE=golang" \
     -e "VERSION=1" \
     cli peer lifecycle chaincode package mycc.tar.gz \
