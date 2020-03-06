@@ -25,11 +25,14 @@ function package(){
     --path github.com/hyperledger/fabric-samples/chaincode/abstore/go/ \
     --lang golang \
     --label fabcar_1
+
+  docker exec cli bash \
+    -c "cp mycc.tar.gz /opt/gopath/src/github.com/hyperledger/fabric/peer/pkg"
 }
 
 function install(){
   echo "install..."
-  docker exec -e "GO111MODULE=on" cli peer lifecycle chaincode install mycc.tar.gz
+  docker exec -e "GO111MODULE=on" cli peer lifecycle chaincode install /opt/gopath/src/github.com/hyperledger/fabric/peer/pkg/mycc.tar.gz
 }
 
 if [ "$MODE" == "package" ]; then
