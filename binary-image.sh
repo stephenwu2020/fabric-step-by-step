@@ -134,7 +134,7 @@ pullDockerImages() {
     fi
 }
 
-DOCKER=true
+DOCKER=false
 SAMPLES=false
 BINARIES=true
 
