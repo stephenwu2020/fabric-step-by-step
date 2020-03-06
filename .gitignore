@@ -4,3 +4,4 @@ channel-artifacts
 vendor
 */pkg/*.tar.gz
 bin
+config
