@@ -29,7 +29,7 @@ function package(){
 
 function install(){
   echo "install..."
-  docker exec cli peer lifecycle chaincode install mycc.tar.gz
+  docker exec -e "GO111MODULE=on" cli peer lifecycle chaincode install mycc.tar.gz
 }
 
 if [ "$MODE" == "package" ]; then
