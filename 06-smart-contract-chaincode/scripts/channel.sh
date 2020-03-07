@@ -98,7 +98,6 @@ elif [ "$MODE" == "anchor" ]; then
 elif [ "$MODE" == "info" ]; then
   showChanInfo
 elif [ "$MODE" == "combine" ]; then
-  genChanTx
   createChan
   joinChan
   setAnchor
