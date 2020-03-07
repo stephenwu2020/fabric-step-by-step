@@ -28,7 +28,7 @@ function package(){
       --label fabcar_1
 
     cp mycc.tar.gz /opt/gopath/src/github.com/hyperledger/fabric/peer/pkg
-  if
+  fi
 }
 
 function install(){
