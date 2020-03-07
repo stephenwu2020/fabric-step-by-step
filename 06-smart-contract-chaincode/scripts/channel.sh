@@ -2,20 +2,20 @@
 
 MODE=$1
 CHANNEL_NAME="c1"
-CAFILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/demo.com/orderers/o4.demo.com/msp/tlscacerts/tlsca.demo.com-cert.pem
+CAFILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/ordererOrganizations/demo.com/orderers/o4.demo.com/msp/tlscacerts/tlsca.demo.com-cert.pem
 TAG="2.0.0"
 
 # r1 env
-R1MSP=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/r1.demo.com/users/Admin@r1.demo.com/msp
+R1MSP=/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r1.demo.com/users/Admin@r1.demo.com/msp
 R1ADDR=peer0.r1.demo.com:7051
 R1MSPID="R1"
-R1CRT=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/r1.demo.com/peers/peer0.r1.demo.com/tls/ca.crt 
+R1CRT=/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r1.demo.com/peers/peer0.r1.demo.com/tls/ca.crt 
 
 # r2 env
-R2MSP=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/r2.demo.com/users/Admin@r2.demo.com/msp
+R2MSP=/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r2.demo.com/users/Admin@r2.demo.com/msp
 R2ADDR=peer0.r2.demo.com:8051
 R2MSPID="R2"
-R2CRT=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/r2.demo.com/peers/peer0.r2.demo.com/tls/ca.crt 
+R2CRT=/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r2.demo.com/peers/peer0.r2.demo.com/tls/ca.crt 
 
 function help(){
   echo "Usage: "
