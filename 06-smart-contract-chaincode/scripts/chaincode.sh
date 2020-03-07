@@ -28,7 +28,7 @@ function help(){
   echo "  - commit"
   echo "  - invoke"
   echo "  - query"
-  echo "  - combine"
+  echo "  - start"
 }
 
 function package(){
@@ -168,7 +168,7 @@ elif [ "$MODE" == "invoke" ]; then
   invoke
 elif [ "$MODE" == "query" ]; then
   query
-elif [ "$MODE" == "combine" ]; then
+elif [ "$MODE" == "start" ]; then
   package
   install
   approve

@@ -69,6 +69,7 @@ services:
         - ./organizations/peerOrganizations/r1.demo.com/peers/peer0.r1.demo.com/tls:/opt/gopath/src/github.com/hyperledger/fabric/peer/tls
         - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
         - ./organizations:/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/
+        - ./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
     networks:
       - basic
 
@@ -105,6 +106,7 @@ services:
         - ./organizations/peerOrganizations/r2.demo.com/peers/peer0.r2.demo.com/tls:/opt/gopath/src/github.com/hyperledger/fabric/peer/tls
         - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
         - ./organizations:/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/
+        - ./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
     networks:
       - basic
 
