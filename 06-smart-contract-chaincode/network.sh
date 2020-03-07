@@ -74,7 +74,7 @@ elif [ "$MODE" == "start" ]; then
   genGenesis
   genChanTx
   networkUp
-  channeltx
+  genChanTx
 elif [ "$MODE" == "end" ]; then
   networkDown
   clear
