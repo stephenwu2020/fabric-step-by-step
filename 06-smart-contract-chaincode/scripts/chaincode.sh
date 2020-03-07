@@ -65,12 +65,34 @@ function checkcommitreadiness(){
     --output json
 }
 
+function invoke(){
+  peer chaincode invoke \
+    -o o4.demo.com:7050 \
+    --isInit \
+    --tls \
+    --cafile $CAFILE \
+    -C $CHANNEL_NAME \
+    -n mycc \
+    --peerAddresses peer0.r1.demo.com:7051 \
+    --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/r1.demo.com/peers/peer0.r1.demo.com/tls/ca.crt \
+    -c '{"Args":["Init","a","100","b","100"]}' \
+    --waitForEvent
+}
+
+function query(){
+
+}
+
 if [ "$MODE" == "package" ]; then
   package
 elif [ "$MODE" == "install" ]; then
   install
 elif [ "$MODE" == "check" ]; then
   checkcommitreadiness
+elif [ "$MODE" == "invoke" ]; then
+  invoke
+elif [ "$MODE" == "query" ]; then
+  query
 else        
   help
   exit 1
