@@ -80,7 +80,7 @@ function setAnchor(){
 }
 
 function execChaincode(){
-  docker exec cli chaincode.sh
+  docker exec cli ./chaincode.sh
 }
 
 function networkUp(){
