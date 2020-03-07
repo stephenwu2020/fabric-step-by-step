@@ -28,7 +28,7 @@ function help(){
 }
 
 function createChan(){
-  cli peer channel create \
+  peer channel create \
     -o o4.demo.com:7050 \
     -c $CHANNEL_NAME \
     -f /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/${CHANNEL_NAME}.tx \
