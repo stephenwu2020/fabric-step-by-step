@@ -16,6 +16,7 @@ function help(){
   echo "  - channel"
   echo "  - anchor"
   echo "  - channelinfo"
+  echo "  - chaincode"
   echo "  - up"
   echo "  - down"
   echo "  - clear"
@@ -78,6 +79,10 @@ function setAnchor(){
   showChanInfo
 }
 
+function execChaincode(){
+  docker exec cli chaincode.sh
+}
+
 function networkUp(){
   IMAGE_TAG=$TAG docker-compose up -d
 }
@@ -104,6 +109,8 @@ elif [ "$MODE" == "anchor" ]; then
   setAnchor
 elif [ "$MODE" == "channelinfo" ]; then
   showChanInfo
+elif [ "$MODE" == "chaincode" ]; then
+  execChaincode
 elif [ "$MODE" == "up" ]; then
   networkUp
 elif [ "$MODE" == "down" ]; then
