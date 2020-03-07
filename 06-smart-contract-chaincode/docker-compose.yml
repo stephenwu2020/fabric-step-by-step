@@ -137,5 +137,6 @@ services:
     depends_on:
       - o4.demo.com
       - peer0.r1.demo.com
+      - peer0.r2.demo.com
     networks:
       - basic
