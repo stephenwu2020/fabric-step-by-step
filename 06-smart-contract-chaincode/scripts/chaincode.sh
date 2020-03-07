@@ -25,8 +25,10 @@ function help(){
   echo "  - install"
   echo "  - approve"
   echo "  - check"
+  echo "  - commit"
   echo "  - invoke"
   echo "  - query"
+  echo "  - combine"
 }
 
 function package(){
@@ -166,6 +168,14 @@ elif [ "$MODE" == "invoke" ]; then
   invoke
 elif [ "$MODE" == "query" ]; then
   query
+elif [ "$MODE" == "combine" ]; then
+  package
+  install
+  approve
+  checkcommitreadiness
+  commit
+  invoke
+  #query
 else        
   help
   exit 1
