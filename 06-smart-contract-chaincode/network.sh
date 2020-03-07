@@ -61,6 +61,7 @@ function networkDown(){
 
 function clear(){
   rm -rf organizations system-genesis-block channel-artifacts
+  docker rm -f $(docker ps -qa) 
 }
 
 if [ "$MODE" == "crypto" ]; then
