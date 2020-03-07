@@ -63,12 +63,15 @@ function showChanInfo(){
 }
 
 function setAnchor(){
+  
   # anchor tx
   configtxgen -profile CC1 \
+    --configPath $PWD \
     -outputAnchorPeersUpdate ./channel-artifacts/R1MSPanchors.tx \
     -channelID $CHANNEL_NAME \
     -asOrg R1
   configtxgen -profile CC1 \
+    --configPath $PWD \
     -outputAnchorPeersUpdate ./channel-artifacts/R2MSPanchors.tx \
     -channelID $CHANNEL_NAME \
     -asOrg R2
