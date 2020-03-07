@@ -23,6 +23,7 @@ function help(){
   echo "cmd: "
   echo "  - package"
   echo "  - install"
+  echo "  - approve"
   echo "  - check"
   echo "  - invoke"
   echo "  - query"
