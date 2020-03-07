@@ -105,6 +105,22 @@ function approve(){
     --cafile $CAFILE
 }
 
+function commit(){
+  peer lifecycle chaincode commit \
+    -o o4.demo.com:7050 \
+    --channelID $CHANNEL_NAME \
+    --name mycc \
+    --version 1.0 \
+    --sequence 1 \
+    --init-required \
+    --tls true \
+    --cafile $CAFILE \
+    --peerAddresses peer0.r1.demo.com:7051 \
+    --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r1.demo.com/peers/peer0.r1.demo.com/tls/ca.crt \
+    --peerAddresses peer0.r2.demo.com:8051 \
+    --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r2.demo.com/peers/peer0.r2.demo.com/tls/ca.crt \
+}
+
 function checkcommitreadiness(){
   # checkcommitreadiness
   peer lifecycle chaincode checkcommitreadiness \
@@ -126,6 +142,8 @@ function invoke(){
     -n mycc \
     --peerAddresses peer0.r1.demo.com:7051 \
     --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r1.demo.com/peers/peer0.r1.demo.com/tls/ca.crt \
+    --peerAddresses peer0.r2.demo.com:8051 \
+    --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r2.demo.com/peers/peer0.r2.demo.com/tls/ca.crt \
     -c '{"Args":["Init","a","100","b","100"]}' \
     --waitForEvent
 }
@@ -140,6 +158,8 @@ elif [ "$MODE" == "install" ]; then
   install
 elif [ "$MODE" == "approve" ]; then
   approve
+elif [ "$MODE" == "commit" ]; then
+  commit
 elif [ "$MODE" == "check" ]; then
   checkcommitreadiness
 elif [ "$MODE" == "invoke" ]; then
