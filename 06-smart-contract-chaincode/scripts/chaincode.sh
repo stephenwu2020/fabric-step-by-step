@@ -33,10 +33,15 @@ function package(){
 
 function install(){
   echo "install chaincode ..."
-  echo ${FABRIC_CFG_PATH}
-  GO111MODULE=on peer lifecycle chaincode install /opt/gopath/src/github.com/hyperledger/fabric/peer/pkg/mycc.tar.gz
+  GO111MODULE=on
+  peer lifecycle chaincode install /opt/gopath/src/github.com/hyperledger/fabric/peer/pkg/mycc.tar.gz
   echo "install success:"
-  peer lifecycle chaincode queryinstalled
+  set -x 
+  peer lifecycle chaincode queryinstalled >&log.txt
+  set +x
+  cat log.txt
+  PACKAGE_ID=`sed -n '/Package/{s/^Package ID: //; s/, Label:.*$//; p;}' log.txt`
+  echo PackageID is ${PACKAGE_ID}
 }
 
 if [ "$MODE" == "package" ]; then
