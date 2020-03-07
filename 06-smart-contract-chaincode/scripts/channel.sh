@@ -25,6 +25,7 @@ function help(){
   echo "  - join"
   echo "  - anchor"
   echo "  - info"
+  echo "  - combine"
 }
 
 function createChan(){
