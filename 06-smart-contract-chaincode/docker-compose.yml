@@ -87,6 +87,7 @@ services:
       #- CORE_PEER_GOSSIP_BOOTSTRAP=peer0.r1.demo.com:8051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.r2.demo.com:8051
         # enabled TLS
+      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r1.demo.com/msp
       - CORE_PEER_TLS_ENABLED=true
       - CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/tls/server.key
