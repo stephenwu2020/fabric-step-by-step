@@ -80,7 +80,7 @@ function invoke(){
 }
 
 function query(){
-
+  peer chaincode query -C $CHANNEL_NAME -n mycc -c '{"Args":["query","a"]}'
 }
 
 if [ "$MODE" == "package" ]; then
