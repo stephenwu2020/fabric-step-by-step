@@ -63,18 +63,6 @@ function showChanInfo(){
 }
 
 function setAnchor(){
-  
-  # anchor tx
-  configtxgen -profile CC1 \
-    --configPath $PWD \
-    -outputAnchorPeersUpdate ./channel-artifacts/R1MSPanchors.tx \
-    -channelID $CHANNEL_NAME \
-    -asOrg R1
-  configtxgen -profile CC1 \
-    --configPath $PWD \
-    -outputAnchorPeersUpdate ./channel-artifacts/R2MSPanchors.tx \
-    -channelID $CHANNEL_NAME \
-    -asOrg R2
   # anchor update
   CORE_PEER_MSPCONFIGPATH=${R1MSP}
   CORE_PEER_ADDRESS=${R1ADDR}

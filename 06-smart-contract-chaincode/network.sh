@@ -3,6 +3,7 @@
 MODE=$1
 CHANNEL_NAME="c1"
 TAG="2.0.0"
+FABRIC_CFG_PATH=$PWD
 
 function help(){
   echo "Usage: "
@@ -28,7 +29,18 @@ function genGenesis(){
 }
 
 function genChanTx(){
+  # channel tx
   configtxgen -profile CC1 -outputCreateChannelTx ./channel-artifacts/${CHANNEL_NAME}.tx -channelID $CHANNEL_NAME
+  # r1 anchor tx
+  configtxgen -profile CC1 \
+    -outputAnchorPeersUpdate ./channel-artifacts/R1MSPanchors.tx \
+    -channelID $CHANNEL_NAME \
+    -asOrg R1
+  # r2 anchor tx
+  configtxgen -profile CC1 \
+    -outputAnchorPeersUpdate ./channel-artifacts/R2MSPanchors.tx \
+    -channelID $CHANNEL_NAME \
+    -asOrg R2
 }
 
 function execChaincode(){
