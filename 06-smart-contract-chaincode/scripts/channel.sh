@@ -21,7 +21,7 @@ function help(){
   echo "Usage: "
   echo "  channel.sh <cmd>"
   echo "cmd: "
-  echo "  - channel"
+  echo "  - create"
   echo "  - join"
   echo "  - anchor"
   echo "  - info"
@@ -97,7 +97,7 @@ function setAnchor(){
   showChanInfo
 }
 
-if [ "$MODE" == "channel" ]; then
+if [ "$MODE" == "create" ]; then
   createChan    
 elif [ "$MODE" == "join" ]; then
   joinChan
