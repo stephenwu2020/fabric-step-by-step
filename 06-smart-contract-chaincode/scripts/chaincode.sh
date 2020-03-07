@@ -49,7 +49,7 @@ function install(){
     --version 1.0 \
     --init-required \
     --package-id $PACKAGE_ID \
-    --sequence 1 
+    --sequence 1 \
     --tls \
     --cafile $CAFILE
 }
