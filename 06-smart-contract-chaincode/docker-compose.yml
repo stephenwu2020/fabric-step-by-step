@@ -98,6 +98,7 @@ services:
         - ./organizations:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
         - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
         - ./pkg:/opt/gopath/src/github.com/hyperledger/fabric/peer/pkg
+        - ./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
     depends_on:
       - o4.demo.com
       - peer0.r1.demo.com
