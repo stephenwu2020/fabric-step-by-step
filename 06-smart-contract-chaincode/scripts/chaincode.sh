@@ -36,11 +36,9 @@ function install(){
   GO111MODULE=on
   peer lifecycle chaincode install /opt/gopath/src/github.com/hyperledger/fabric/peer/pkg/mycc.tar.gz
   echo "install success:"
-  set -x 
   peer lifecycle chaincode queryinstalled >&log.txt
-  set +x
   cat log.txt
-  PACKAGE_ID=`sed -n '/Package/{s/^Package ID: //; s/, Label:.*$//; p;}' log.txt`
+  PACKAGE_ID=`sed -n '/Package/{s/^Package ID: //; s/, Label:.*$//; $p;}' log.txt`
   echo PackageID is ${PACKAGE_ID}
 }
 
