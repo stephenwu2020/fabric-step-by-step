@@ -13,9 +13,6 @@ function help(){
   echo "  - crypto"
   echo "  - genesis"
   echo "  - channeltx"
-  echo "  - channel"
-  echo "  - anchor"
-  echo "  - channelinfo"
   echo "  - chaincode"
   echo "  - up"
   echo "  - down"
@@ -32,7 +29,9 @@ function genGenesis(){
   configtxgen -profile NC4 -channelID ordererchannel -outputBlock ./system-genesis-block/genesis.block
 }
 
-
+function genChanTx(){
+  configtxgen -profile CC1 -outputCreateChannelTx ./channel-artifacts/${CHANNEL_NAME}.tx -channelID $CHANNEL_NAME
+}
 
 function execChaincode(){
   docker exec cli scripts/chaincode.sh $1
@@ -58,7 +57,8 @@ if [ "$MODE" == "crypto" ]; then
   genCrypto
 elif [ "$MODE" == "genesis" ]; then
   genGenesis
-
+elif [ "$MODE" == "channeltx" ]; then
+  genChanTx
 elif [ "$MODE" == "chaincode" ]; then
   execChaincode $2
 elif [ "$MODE" == "channel" ]; then
@@ -74,6 +74,7 @@ elif [ "$MODE" == "start" ]; then
   genGenesis
   genChanTx
   networkUp
+  channeltx
 elif [ "$MODE" == "end" ]; then
   networkDown
   clear

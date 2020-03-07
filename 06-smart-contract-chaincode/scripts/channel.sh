@@ -21,16 +21,10 @@ function help(){
   echo "Usage: "
   echo "  channel.sh <cmd>"
   echo "cmd: "
-  echo "  - channeltx"
   echo "  - channel"
   echo "  - join"
   echo "  - anchor"
   echo "  - info"
-}
-
-function genChanTx(){
-  FABRIC_CFG_PATH=$PWD
-  configtxgen -profile CC1 -outputCreateChannelTx ./channel-artifacts/${CHANNEL_NAME}.tx -channelID $CHANNEL_NAME
 }
 
 function createChan(){
@@ -103,9 +97,7 @@ function setAnchor(){
   showChanInfo
 }
 
-if [ "$MODE" == "channeltx" ]; then
-  genChanTx
-elif [ "$MODE" == "channel" ]; then
+if [ "$MODE" == "channel" ]; then
   createChan    
 elif [ "$MODE" == "join" ]; then
   joinChan
