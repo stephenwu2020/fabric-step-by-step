@@ -80,7 +80,7 @@ function setAnchor(){
 }
 
 function execChaincode(){
-  docker exec cli scripts/chaincode.sh
+  docker exec cli scripts/chaincode.sh $1
 }
 
 function networkUp(){
@@ -110,7 +110,7 @@ elif [ "$MODE" == "anchor" ]; then
 elif [ "$MODE" == "channelinfo" ]; then
   showChanInfo
 elif [ "$MODE" == "chaincode" ]; then
-  execChaincode
+  execChaincode $2
 elif [ "$MODE" == "up" ]; then
   networkUp
 elif [ "$MODE" == "down" ]; then

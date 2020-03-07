@@ -31,10 +31,11 @@ function package(){
 }
 
 function install(){
-  echo "install..."
-  docker exec -e "GO111MODULE=on" cli peer lifecycle chaincode install /opt/gopath/src/github.com/hyperledger/fabric/peer/pkg/mycc.tar.gz
+  echo "install chaincode ..."
+  echo ${FABRIC_CFG_PATH}
+  GO111MODULE=on peer lifecycle chaincode install /opt/gopath/src/github.com/hyperledger/fabric/peer/pkg/mycc.tar.gz
   echo "install success:"
-  docker exec cli peer lifecycle chaincode queryinstalled
+  peer lifecycle chaincode queryinstalled
 }
 
 if [ "$MODE" == "package" ]; then
