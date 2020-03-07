@@ -51,6 +51,7 @@ function joinChan(){
   CORE_PEER_ADDRESS=${R2ADDR}
   CORE_PEER_LOCALMSPID=${R2MSPID}
   CORE_PEER_TLS_ROOTCERT_FILE=${R2CRT}
+  peer channel join \
     -b /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/${CHANNEL_NAME}.block
   # show info
   showChanInfo
