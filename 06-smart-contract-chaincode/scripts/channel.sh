@@ -29,6 +29,7 @@ function help(){
 }
 
 function genChanTx(){
+  FABRIC_CFG_PATH=$PWD
   configtxgen -profile CC1 -outputCreateChannelTx ./channel-artifacts/${CHANNEL_NAME}.tx -channelID $CHANNEL_NAME
 }
 
