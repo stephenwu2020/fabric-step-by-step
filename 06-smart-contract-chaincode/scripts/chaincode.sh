@@ -11,6 +11,9 @@ function help(){
   echo "cmd: "
   echo "  - package"
   echo "  - install"
+  echo "  - check"
+  echo "  - invoke"
+  echo "  - query"
 }
 
 function package(){
