@@ -50,6 +50,9 @@ Organizations:
             Endorsement:
                 Type: Signature
                 Rule: "OR('R2.peer')"
+        AnchorPeers:
+            - Host: peer0.r2.demo.com
+              Port: 8051
 
 Capabilities:
     Channel: &ChannelCapabilities
