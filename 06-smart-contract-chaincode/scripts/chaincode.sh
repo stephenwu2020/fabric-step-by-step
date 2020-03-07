@@ -51,7 +51,7 @@ function install(){
     --package-id $PACKAGE_ID \
     --sequence 1 
     --tls \
-    --cafile CAFILE
+    --cafile $CAFILE
 }
 
 if [ "$MODE" == "package" ]; then
