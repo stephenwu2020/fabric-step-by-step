@@ -35,11 +35,23 @@ function install(){
   echo "install chaincode ..."
   GO111MODULE=on
   peer lifecycle chaincode install /opt/gopath/src/github.com/hyperledger/fabric/peer/pkg/mycc.tar.gz
+
   echo "install success:"
   peer lifecycle chaincode queryinstalled >&log.txt
   cat log.txt
   PACKAGE_ID=`sed -n '/Package/{s/^Package ID: //; s/, Label:.*$//; $p;}' log.txt`
   echo PackageID is ${PACKAGE_ID}
+
+  echo "approve ..."
+  peer lifecycle chaincode approveformyorg \
+    --channelID $CHANNEL_NAME \
+    --name mycc \
+    --version 1.0 \
+    --init-required \
+    --package-id $PACKAGE_ID \
+    --sequence 1 
+    --tls \
+    --cafile CAFILE
 }
 
 if [ "$MODE" == "package" ]; then
