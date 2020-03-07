@@ -43,7 +43,7 @@ function joinChan(){
   CORE_PEER_ADDRESS=${R1ADDR}
   CORE_PEER_LOCALMSPID=${R1MSPID}
   CORE_PEER_TLS_ROOTCERT_FILE=${R1CRT}
-  cli peer channel join \
+  peer channel join \
     -b /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/${CHANNEL_NAME}.block
 
   # r2 join
@@ -76,7 +76,7 @@ function setAnchor(){
   CORE_PEER_ADDRESS=${R1ADDR}
   CORE_PEER_LOCALMSPID=${R1MSPID}
   CORE_PEER_TLS_ROOTCERT_FILE=${R1CRT}
-  cli peer channel update \
+  peer channel update \
     -o o4.demo.com:7050 \
     -c $CHANNEL_NAME \
     -f /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/R1MSPanchors.tx \
@@ -87,7 +87,7 @@ function setAnchor(){
   CORE_PEER_ADDRESS=${R2ADDR}
   CORE_PEER_LOCALMSPID=${R2MSPID}
   CORE_PEER_TLS_ROOTCERT_FILE=${R2CRT}
-  cli peer channel update \
+  peer channel update \
     -o o4.demo.com:7050 \
     -c $CHANNEL_NAME \
     -f /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/R2MSPanchors.tx \
