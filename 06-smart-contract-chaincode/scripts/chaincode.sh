@@ -15,19 +15,21 @@ function help(){
 }
 
 function package(){
-  echo "fetch go dependency"
-  docker exec cli bash \
-    -c "cd /opt/gopath/src/github.com/hyperledger/fabric-samples/chaincode/abstore/go/ && go mod vendor"
+  if [ -f "pkg/mycc.tar.gz" ]; then
+    echo "pkg already exist"
+  else
+    echo "fetch go dependency"
+    cd /opt/gopath/src/github.com/hyperledger/fabric-samples/chaincode/abstore/go/
+    go mod vendor
 
-  echo "package chaincode"
-  docker exec \
-    cli peer lifecycle chaincode package mycc.tar.gz \
-    --path github.com/hyperledger/fabric-samples/chaincode/abstore/go/ \
-    --lang golang \
-    --label fabcar_1
+    echo "package chaincode"
+    peer lifecycle chaincode package mycc.tar.gz \
+      --path github.com/hyperledger/fabric-samples/chaincode/abstore/go/ \
+      --lang golang \
+      --label fabcar_1
 
-  docker exec cli bash \
-    -c "cp mycc.tar.gz /opt/gopath/src/github.com/hyperledger/fabric/peer/pkg"
+    cp mycc.tar.gz /opt/gopath/src/github.com/hyperledger/fabric/peer/pkg
+  if
 }
 
 function install(){
