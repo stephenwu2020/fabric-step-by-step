@@ -30,7 +30,7 @@ function execChannel(){
 
 
 if [ "$MODE" == "network" ]; then
-  execNetwork
+  execNetwork $2
 elif [ "$MODE" == "channel" ]; then
   execChannel $2
 elif [ "$MODE" == "chaincode" ]; then
