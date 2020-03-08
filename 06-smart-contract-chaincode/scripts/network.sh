@@ -12,12 +12,10 @@ function help(){
   echo "  - crypto"
   echo "  - genesis"
   echo "  - channeltx"
-  echo "  - chaincode"
   echo "  - up"
   echo "  - down"
   echo "  - clear"
   echo "  - start"
-  echo "  - end"
 }
 
 function genCrypto(){
@@ -41,14 +39,6 @@ function genChanTx(){
     -outputAnchorPeersUpdate ./channel-artifacts/R2MSPanchors.tx \
     -channelID $CHANNEL_NAME \
     -asOrg R2
-}
-
-function execChaincode(){
-  docker exec cli scripts/chaincode.sh $1
-}
-
-function execChannel(){
-  docker exec cli scripts/channel.sh $1
 }
 
 function networkUp(){
@@ -86,9 +76,6 @@ elif [ "$MODE" == "start" ]; then
   genChanTx
   networkUp
   genChanTx
-elif [ "$MODE" == "end" ]; then
-  networkDown
-  clear
 else        
   help
   exit 1
