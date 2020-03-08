@@ -154,6 +154,10 @@ function query(){
   peer chaincode query -C $CHANNEL_NAME -n mycc -c '{"Args":["query","a"]}'
 }
 
+function debug(){
+  echo "peer chaincode invoke -o o4.demo.com:7050 --isInit -C c1 -n mycc -c '{"Args":["Init","a","100","b","100"]}' --waitForEvent --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/ordererOrganizations/demo.com/orderers/o4.demo.com/msp/tlscacerts/tlsca.demo.com-cert.pem"
+}
+
 if [ "$MODE" == "package" ]; then
   package
 elif [ "$MODE" == "install" ]; then
@@ -166,6 +170,8 @@ elif [ "$MODE" == "check" ]; then
   checkcommitreadiness
 elif [ "$MODE" == "invoke" ]; then
   invoke
+elif [ "$MODE" == "debug" ]; then
+  debug
 elif [ "$MODE" == "query" ]; then
   query
 elif [ "$MODE" == "start" ]; then
