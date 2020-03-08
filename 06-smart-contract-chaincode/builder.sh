@@ -17,7 +17,7 @@ function help(){
 }
 
 function execNetwork(){
-  docker exec cli scripts/network.sh $1
+  scripts/network.sh $1
 }
 
 function execChaincode(){
