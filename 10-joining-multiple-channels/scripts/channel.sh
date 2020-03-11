@@ -139,6 +139,20 @@ function setAnchor(){
     --cafile $CAFILE
   # show info
   showChanInfo
+
+  # r2 cc2 anchor
+  CORE_PEER_MSPCONFIGPATH=${R2MSP}
+  CORE_PEER_ADDRESS=${R2ADDR}
+  CORE_PEER_LOCALMSPID=${R2MSPID}
+  CORE_PEER_TLS_ROOTCERT_FILE=${R2CRT}
+  peer channel update \
+    -o o4.demo.com:7050 \
+    -c $OTHER_CHANNEL_NAME \
+    -f /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/R2MSPanchorsC2.tx \
+    --tls \
+    --cafile $CAFILE
+  # show info
+  showChanInfo
 }
 
 if [ "$MODE" == "create" ]; then

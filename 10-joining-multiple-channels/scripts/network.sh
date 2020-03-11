@@ -49,6 +49,12 @@ function genChanTx(){
     -outputAnchorPeersUpdate ./channel-artifacts/R3MSPanchors.tx \
     -channelID $OTHER_CHANNEL_NAME \
     -asOrg R3
+
+  # r2 CC2 anchor tx
+  configtxgen -profile CC2 \
+    -outputAnchorPeersUpdate ./channel-artifacts/R2MSPanchorsC2.tx \
+    -channelID $other \
+    -asOrg R2
 }
 
 function networkUp(){
