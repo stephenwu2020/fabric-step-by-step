@@ -88,7 +88,6 @@ function joinChan(){
 
 function showChanInfo(){
   peer channel list
-  peer channel getinfo -c ${CHANNEL_NAME}
 }
 
 function setAnchor(){
