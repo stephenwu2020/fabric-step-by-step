@@ -2,6 +2,7 @@
 
 MODE=$1
 CHANNEL_NAME="c1"
+OTHER_CHANNEL_NAME="c2"
 CAFILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/ordererOrganizations/demo.com/orderers/o4.demo.com/msp/tlscacerts/tlsca.demo.com-cert.pem
 TAG="2.0.0"
 
@@ -16,6 +17,12 @@ R2MSP=/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrgan
 R2ADDR=peer0.r2.demo.com:8051
 R2MSPID="R2"
 R2CRT=/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r2.demo.com/peers/peer0.r2.demo.com/tls/ca.crt 
+
+# r3 env
+R3MSP=/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r3.demo.com/users/Admin@r3.demo.com/msp
+R3ADDR=peer0.r3.demo.com:9051
+R3MSPID="R3"
+R3CRT=/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r3.demo.com/peers/peer0.r3.demo.com/tls/ca.crt 
 
 function help(){
   echo "Usage: "
@@ -34,6 +41,14 @@ function createChan(){
     -c $CHANNEL_NAME \
     -f /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/${CHANNEL_NAME}.tx \
     --outputBlock /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/${CHANNEL_NAME}.block \
+    --tls \
+    --cafile $CAFILE
+
+  peer channel create \
+    -o o4.demo.com:7050 \
+    -c $OTHER_CHANNEL_NAME \
+    -f /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/${OTHER_CHANNEL_NAME}.tx \
+    --outputBlock /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/${OTHER_CHANNEL_NAME}.block \
     --tls \
     --cafile $CAFILE
 }
