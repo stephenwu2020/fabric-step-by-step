@@ -44,11 +44,6 @@ function genChanTx(){
   # other channel 
   configtxgen -profile CC2 -outputCreateChannelTx ./channel-artifacts/${OTHER_CHANNEL_NAME}.tx -channelID ${OTHER_CHANNEL_NAME}
 
-  # r3 anchor tx
-  configtxgen -profile CC2 \
-    -outputAnchorPeersUpdate ./channel-artifacts/R3MSPanchors.tx \
-    -channelID $OTHER_CHANNEL_NAME \
-    -asOrg R3
 }
 
 function networkUp(){
