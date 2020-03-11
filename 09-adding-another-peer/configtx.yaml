@@ -165,6 +165,10 @@ Profiles:
                 Organizations:
                     - *R1
                     - *R2
+            X2:
+                Organizations:
+                    - *R2
+                    - *R3
     CC1:
         Consortium: X1
         <<: *ChannelDefaults
