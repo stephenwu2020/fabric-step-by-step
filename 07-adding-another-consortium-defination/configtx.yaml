@@ -54,6 +54,27 @@ Organizations:
             - Host: peer0.r2.demo.com
               Port: 8051
 
+    - &R3
+        Name: R3
+        ID: R3
+        MSPDir: ./organizations/peerOrganizations/r3.demo.com/msp
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('R3.admin', 'R3.peer', 'R3.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('R3.admin', 'R3.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('R3.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('R3.peer')"
+        AnchorPeers:
+            - Host: peer0.r3.demo.com
+              Port: 9051
+
 Capabilities:
     Channel: &ChannelCapabilities
         V2_0: true
@@ -152,5 +173,16 @@ Profiles:
             Organizations:
                 - *R1
                 - *R2
+            Capabilities:
+                <<: *ApplicationCapabilities
+
+    CC2:
+        Consortium: X2
+        <<: *ChannelDefaults
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *R2
+                - *R3
             Capabilities:
                 <<: *ApplicationCapabilities

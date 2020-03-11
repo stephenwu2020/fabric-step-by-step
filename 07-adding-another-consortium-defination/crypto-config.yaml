@@ -19,3 +19,10 @@ PeerOrgs:
       Count: 1
     Users:
       Count: 2
+  - Name: R3
+    Domain: r3.demo.com
+    EnableNodeOUs: true
+    Template:
+      Count: 1
+    Users:
+      Count: 2
