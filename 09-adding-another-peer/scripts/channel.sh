@@ -103,6 +103,8 @@ function setAnchor(){
     -f /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/R1MSPanchors.tx \
     --tls \
     --cafile $CAFILE
+  # show info
+  showChanInfo
 
   CORE_PEER_MSPCONFIGPATH=${R2MSP}
   CORE_PEER_ADDRESS=${R2ADDR}
@@ -112,6 +114,19 @@ function setAnchor(){
     -o o4.demo.com:7050 \
     -c $CHANNEL_NAME \
     -f /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/R2MSPanchors.tx \
+    --tls \
+    --cafile $CAFILE
+  # show info
+  showChanInfo
+
+  CORE_PEER_MSPCONFIGPATH=${R3MSP}
+  CORE_PEER_ADDRESS=${R3ADDR}
+  CORE_PEER_LOCALMSPID=${R3MSPID}
+  CORE_PEER_TLS_ROOTCERT_FILE=${R3CRT}
+  peer channel update \
+    -o o4.demo.com:7050 \
+    -c $OTHER_CHANNEL_NAME \
+    -f /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/R3MSPanchors.tx \
     --tls \
     --cafile $CAFILE
   # show info
