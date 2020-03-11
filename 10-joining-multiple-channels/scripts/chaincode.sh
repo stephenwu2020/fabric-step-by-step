@@ -186,7 +186,7 @@ elif [ "$MODE" == "start" ]; then
   commit
   afterCommit
   invoke
-  #query
+  query
 else        
   help
   exit 1
