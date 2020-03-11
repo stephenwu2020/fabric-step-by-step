@@ -61,6 +61,8 @@ function joinChan(){
   CORE_PEER_TLS_ROOTCERT_FILE=${R1CRT}
   peer channel join \
     -b /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/${CHANNEL_NAME}.block
+  # show info
+  showChanInfo
 
   # r2 join
   CORE_PEER_MSPCONFIGPATH=${R2MSP}
@@ -69,6 +71,17 @@ function joinChan(){
   CORE_PEER_TLS_ROOTCERT_FILE=${R2CRT}
   peer channel join \
     -b /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/${CHANNEL_NAME}.block
+  # show info
+  showChanInfo
+
+  # r3 join
+  CORE_PEER_MSPCONFIGPATH=${R3MSP}
+  CORE_PEER_ADDRESS=${R3ADDR}
+  CORE_PEER_LOCALMSPID=${R3MSPID}
+  CORE_PEER_TLS_ROOTCERT_FILE=${R3CRT}
+  peer channel join \
+    -b /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/${OTHER_CHANNEL_NAME}.block
+
   # show info
   showChanInfo
 }
