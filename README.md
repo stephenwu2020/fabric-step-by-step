@@ -1,2 +1,5 @@
 # 区块链网络
+
 本文从概念上描述，企业之间使用Hyperledger Fabric进行商业合作时，是如何构建区块链网络的。架构师，管理员，开发工程师，通过阅读本文，对Hyperledger Fabric主要的架构以及组件，将有更深刻的认识。本文将结合操作简易的例子，介绍区块链网络中的各大构成组件。
+
+企业间通过建立policies对Hyperledger Fabric进行控制，根据指定的policies对网络进行升级。Policies是Hyperledger Fabric的关键功能之一，通过阅读本文，你将理解Hyperledger Fabric的主要技术组成，以及它们在企业决策中的应用。
