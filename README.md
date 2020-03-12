@@ -18,4 +18,4 @@
 
 ![Sample Network](https://hyperledger-fabric.readthedocs.io/en/latest/_images/network.diagram.1.png)
 
-*四个企业，R1，R2，R3，R4，达成了协议，决定共同组建一个Hyperledger Fabric网络。R4被大家推举成为网络的初始化一方，授权配置网络的初版。R4并不打算在网络中进行交易。R1和R2需要在网络中进行私密交流，R2和R3也有此诉求。企业R1的应用程序可以在channel C1中进行交易，企业R2的应用程序可以同时在channel C1和channel C2进行交易，企业R3的应用程序可以在channel C2中进行交易。节点P1维护C1的账本L1，节点P2同时维护C1的账本L1和C2的账本L2，节点P3维护C2的账本L2。网络由配置文件NC4中设定的policies进行管理，管理权归属R1和R4. Channel C1由配置文件CC1中的policies管理，管理权归属于R1和R2。Channel C2由配置文件CC2中的policies管理，管理权归属于R2和R3. O4提供ordering服务，是网络的管理节点，使用系统channel。Ordering服务同时为C1和C2的交易进行排序，打包和分发。每个企业都有各自的认证机构。*
+*四个企业，R1，R2，R3，R4，达成了协议，决定共同组建一个Hyperledger Fabric网络。R4被大家推举成为网络的初始化一方，授权配置网络的初版。R4并不打算在网络中进行交易。R1和R2需要在网络中进行私密交流，R2和R3也有此诉求。企业R1的应用程序可以在channel C1中进行交易，企业R2的应用程序可以同时在channel C1和channel C2进行交易，企业R3的应用程序可以在channel C2中进行交易。节点P1维护C1的账本L1，节点P2同时维护C1的账本L1和C2的账本L2，节点P3维护C2的账本L2。网络由配置文件NC4中设定的policies进行管理，控制权归属R1和R4. Channel C1由配置文件CC1中的policies管理，控制权归属于R1和R2。Channel C2由配置文件CC2中的policies管理，控制权归属于R2和R3. O4提供ordering服务，是网络的管理节点，使用系统channel。Ordering服务同时为C1和C2的交易进行排序，打包和分发。每个企业都有各自的认证机构。*
