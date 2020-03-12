@@ -26,3 +26,5 @@
 ![Basic ](https://hyperledger-fabric.readthedocs.io/en/latest/_images/network.diagram.2.png)
 
 *网络搭建始于order的运行。在示例网络(N)中，根据网络配置文件NC4，ordering服务由单节点O4提供。NC4同时指定管理员权限归属于R4。在网络层面上，认证机构CA4用于给网络管理员以及R4的节点分配身份。*
+
+从上图可以看出，定义网络N的首要特征是ordering服务，O4。把ordering服务作为网络的初始管理入口非常自然。根据配置，企业R4的管理员启动O4节点，节点运行在R4之中。网络配置NC4中的policies的内容制定了网络的管理规则，刚开始时，企业R4拥有全部权限。规则将会改变，下文将会对此描述。目前，R4时网络中的唯一成员。
