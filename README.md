@@ -14,4 +14,6 @@
 
 开始之前，让我们看看最终搭建的网络是什么模样吧。下图展示了目标网络的最终状态。
 
+下图看起来相当复杂，切莫担忧，随着本文行进，每次实现当中的一小块，我们将会看到企业R1,R2,R3,R4是如何加入到网络之中，成为网络的一份子。整个网络的运转，由加入网络的组织一致同意的policies管理，例如，policies指定了谁可以添加新的企业等。接下来会看到，应用程序如何获取账本提供的数据，如何使用智能合约与网络进行交互。
+
 ![Sample Network](https://hyperledger-fabric.readthedocs.io/en/latest/_images/network.diagram.1.png)
