@@ -1,1 +1,2 @@
-Learn fabric step by step.
+# 区块链网络
+本文从概念上描述，企业之间使用Hyperledger Fabric进行商业合作时，是如何构建区块链网络的。
