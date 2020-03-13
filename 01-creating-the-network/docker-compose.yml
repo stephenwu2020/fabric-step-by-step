@@ -6,7 +6,7 @@ networks:
 services:
   o4.demo.com:
     container_name: o4.demo.com
-    image: hyperledger/fabric-orderer
+    image: hyperledger/fabric-orderer:$IMAGE_TAG
     environment:
       - FABRIC_LOGGING_SPEC=info
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
