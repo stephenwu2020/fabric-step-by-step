@@ -50,13 +50,13 @@ NC4的初始配置仅允许R4的用户拥有网络管理权。下一阶段，我
 
 当前简单的架构形式，只有单一的orderer节点，然而，ordering服务也可以多节点，多企业的分布式架构实现。比如，可以在R1内部启动O2，O4与O2形成集群共同对外服务。具体内容将会在后面的章节讨论。当前只需把ordering服务当作是不同企业控制网络的管理入口。
 
-# 定义consortium
+# 定义Consortium
 
-至此，R1和R4可以共同管理网络，然而当前网络并不可提供有用的功能。为了发挥网络的作用，首先需要定义一个consortium。consortium，字面上意义为命运共同体，在区块链网络中，它指相互交互的一组企业。
+至此，R1和R4可以共同管理网络，然而当前网络并不可提供有用的功能。为了发挥网络的作用，首先需要定义一个consortium。Consortium，字面上意义为命运共同体，在区块链网络中，它指相互交互的一组企业。
 
 请看consortium是如何定义的：
 ![consortium](https://hyperledger-fabric.readthedocs.io/en/latest/_images/network.diagram.3.png)
-*网络管理员定义consortiumX1，包含两成员，企业R1和企业R2。consortium定义在配置文件NC4中。图中CA1，CA2为各自企业的认证机构。*
+*网络管理员定义consortium X1，包含两成员，企业R1和企业R2。consortium定义在配置文件NC4中。图中CA1，CA2为各自企业的认证机构。*
 
 由于NC4的管理权限配置，只有R1和R4可以创建consortium。上图新增consortiumX1，R1和R2是当中的成员。新增CA2用于识别R2的用户。consortium可以包含无数成员，上图仅仅是最简单的情况。
 
