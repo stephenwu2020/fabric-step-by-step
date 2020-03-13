@@ -52,7 +52,7 @@ NC4的初始配置仅允许R4的用户拥有网络管理权。下一阶段，我
 
 # 定义Consortium
 
-至此，R1和R4可以共同管理网络，然而当前网络并不可提供有用的功能。为了发挥网络的作用，首先需要定义一个consortium。Consortium，字面上意义为命运共同体，在区块链网络中，它指相互交互的一组企业。
+至此，R1和R4可以共同管理网络，然而当前网络并不可提供有用的功能。为了发挥网络的作用，首先需要定义一个consortium。Consortium，字面上意义为命运共同体、联盟，在区块链网络中，它指相互交互的一组企业。
 
 请看consortium是如何定义的：
 ![consortium](https://hyperledger-fabric.readthedocs.io/en/latest/_images/network.diagram.3.png)
