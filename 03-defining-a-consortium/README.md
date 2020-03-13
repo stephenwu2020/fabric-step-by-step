@@ -1,1 +1,1 @@
-learn fabric step by step!
+* configtx.yaml NC4 添加了通道的定义
