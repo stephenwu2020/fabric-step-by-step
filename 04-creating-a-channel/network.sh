@@ -2,6 +2,7 @@
 
 MODE=$1
 CHANNEL_NAME="c1"
+TAG="2.0.0"
 FABRIC_CFG_PATH=$PWD
 CAFILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/demo.com/orderers/o4.demo.com/msp/tlscacerts/tlsca.demo.com-cert.pem
 
@@ -33,9 +34,9 @@ elif [ "$MODE" == "channel" ]; then
     --cafile $CAFILE
     
 elif [ "$MODE" == "up" ]; then
-  docker-compose up -d
+  IMAGE_TAG=$TAG docker-compose up -d
 elif [ "$MODE" == "down" ]; then
-  docker-compose down
+  IMAGE_TAG=$TAG docker-compose down
 elif [ "$MODE" == "clear" ]; then
   rm -rf organizations system-genesis-block channel-artifacts
 else        
