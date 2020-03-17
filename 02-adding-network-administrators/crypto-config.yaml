@@ -6,7 +6,7 @@ OrdererOrgs:
 
 PeerOrgs:
   - Name: CA1
-    Domain: r1.demo.com
+    Domain: ca1.demo.com
     EnableNodeOUs: true
     Template:
       Count: 1
