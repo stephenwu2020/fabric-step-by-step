@@ -1,6 +1,3 @@
-* crypto-config 添加了R1和R2的CA
-* configtx.yaml NC4 添加了通道的定义
-
 03-defining-a-consortium实现["定义联盟"](https://github.com/stephenwu2020/fabric-step-by-step#%E5%AE%9A%E4%B9%89%E8%81%94%E7%9B%9F)这一节的内容。
 
 在上一节的基础上，网络添加了CA2, R2, X1等元素：
