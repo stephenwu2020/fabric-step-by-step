@@ -10,3 +10,5 @@ chaincode.sh实现了智能合约打包，安装，背书，调用等相关命�
 执行程序：
 * ./builder.sh start
 * ./builder.sh end
+
+**实际上，这一节添加了企业R2的节点peer2，否则智能合约无法得到充分授权**
