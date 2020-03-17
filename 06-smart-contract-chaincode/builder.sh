@@ -37,7 +37,11 @@ elif [ "$MODE" == "chaincode" ]; then
   execChaincode $2
 elif [ "$MODE" == "start" ]; then
   execNetwork start
+  echo "sleep 5 second ..."
+  sleep 5
   execChannel start
+  echo "sleep 5 second ..."
+  sleep 5
   execChaincode start
 elif [ "$MODE" == "end" ]; then
   execNetwork down
