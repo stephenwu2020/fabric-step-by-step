@@ -4,4 +4,4 @@
 * CA1，企业R1的认证文件，在crypto-config.yaml中，定义在PeerOrgs之下，命名R1.
 * R1，企业1，是逻辑上的企业的概念，对应认证机构CA1，定义在configtx.yaml的Organizations之下，命名R1.
 
-通过configtx.yaml，Profiles，NC4中的Organizations字段，把R1添加为管理员。
+**通过configtx.yaml，Profiles，NC4中的Organizations字段，把R1添加为管理员。**
