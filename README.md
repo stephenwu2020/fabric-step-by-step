@@ -104,3 +104,7 @@ P1的配置是CA1发行的X.509证书，此证书表明了P1与企业R1的隶属
 仍然可以通过通道访问网络的资源。
 
 上图看起来，A1通过P1访问L1，实际上内部实现需要智能合约链码S5提供服务。S5相当于访问账本的外部接口、模式，A1通过节点的程序S5访问L1.
+
+添加R2的节点之后，网络完整形态如下：
+![complete](https://hyperledger-fabric.readthedocs.io/en/latest/_images/network.diagram.7.png)
+
