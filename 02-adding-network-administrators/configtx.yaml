@@ -16,7 +16,7 @@ Organizations:
     - &R1
         Name: R1
         ID: R1
-        MSPDir: ./organizations/peerOrganizations/ca1.demo.com/msp
+        MSPDir: ./organizations/peerOrganizations/r1.demo.com/msp
         Policies:
             Readers:
                 Type: Signature
@@ -68,8 +68,8 @@ Orderer: &OrdererDefaults
         Consenters:
         - Host: o4.demo.com
           Port: 7050
-          ClientTLSCert: ./organizations/ordererOrganizations/demo.com/orderers/ca4.demo.com/tls/server.crt
-          ServerTLSCert: ./organizations/ordererOrganizations/demo.com/orderers/ca4.demo.com/tls/server.crt
+          ClientTLSCert: ./organizations/ordererOrganizations/demo.com/orderers/o4.demo.com/tls/server.crt
+          ServerTLSCert: ./organizations/ordererOrganizations/demo.com/orderers/o4.demo.com/tls/server.crt
     Addresses:
         - o4.demo.com:7050
     BatchTimeout: 2s
