@@ -6,3 +6,7 @@
 
 chaincode.sh实现了智能合约打包，安装，背书，调用等相关命令。
 原有network.sh的功能，以及channel.sh，chaincode.sh共同整合到builder.sh。
+
+执行程序：
+* ./builder.sh start
+* ./builder.sh end
