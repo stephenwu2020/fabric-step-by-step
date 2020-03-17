@@ -16,7 +16,7 @@
 1. ./network.sh down 关闭网络
 1. ./network.sh clear 清空生成文件
 
-**channeltx命令生成创建通道的交易tx**
+**channeltx命令生成创建通道的交易./channel-artifacts/c1.tx**
 
 **channel命令，将创建通道tx发送到order执行，返回channel.block，为通道的创世块。**
 
