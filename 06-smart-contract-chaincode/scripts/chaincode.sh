@@ -62,11 +62,11 @@ function install(){
   peer lifecycle chaincode install /opt/gopath/src/github.com/hyperledger/fabric/peer/pkg/${CHAINCODE_NAME}.tar.gz
 
   # install on peer of r2
-  CORE_PEER_MSPCONFIGPATH=${R2MSP}
-  CORE_PEER_ADDRESS=${R2ADDR}
-  CORE_PEER_LOCALMSPID=${R2MSPID}
-  CORE_PEER_TLS_ROOTCERT_FILE=${R2CRT}
-  peer lifecycle chaincode install /opt/gopath/src/github.com/hyperledger/fabric/peer/pkg/${CHAINCODE_NAME}.tar.gz
+  #CORE_PEER_MSPCONFIGPATH=${R2MSP}
+  #CORE_PEER_ADDRESS=${R2ADDR}
+  #CORE_PEER_LOCALMSPID=${R2MSPID}
+  #CORE_PEER_TLS_ROOTCERT_FILE=${R2CRT}
+  #peer lifecycle chaincode install /opt/gopath/src/github.com/hyperledger/fabric/peer/pkg/${CHAINCODE_NAME}.tar.gz
 
 }
 
@@ -94,19 +94,19 @@ function approve(){
 
 
   # approve r2
-  CORE_PEER_MSPCONFIGPATH=${R2MSP}
-  CORE_PEER_ADDRESS=${R2ADDR}
-  CORE_PEER_LOCALMSPID=${R2MSPID}
-  CORE_PEER_TLS_ROOTCERT_FILE=${R2CRT}
-  peer lifecycle chaincode approveformyorg \
-    --channelID $CHANNEL_NAME \
-    --name ${CHAINCODE_NAME} \
-    --version 1.0 \
-    --init-required \
-    --package-id $PACKAGE_ID \
-    --sequence 1 \
-    --tls \
-    --cafile $CAFILE
+  #CORE_PEER_MSPCONFIGPATH=${R2MSP}
+  #CORE_PEER_ADDRESS=${R2ADDR}
+  #CORE_PEER_LOCALMSPID=${R2MSPID}
+  #CORE_PEER_TLS_ROOTCERT_FILE=${R2CRT}
+  #peer lifecycle chaincode approveformyorg \
+  #  --channelID $CHANNEL_NAME \
+  #  --name ${CHAINCODE_NAME} \
+  #  --version 1.0 \
+  #  --init-required \
+  #  --package-id $PACKAGE_ID \
+  #  --sequence 1 \
+  #  --tls \
+  #  --cafile $CAFILE
 }
 
 function beforeCommit(){
@@ -132,8 +132,8 @@ function commit(){
     --cafile $CAFILE \
     --peerAddresses peer0.r1.demo.com:7051 \
     --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r1.demo.com/peers/peer0.r1.demo.com/tls/ca.crt \
-    --peerAddresses peer0.r2.demo.com:8051 \
-    --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r2.demo.com/peers/peer0.r2.demo.com/tls/ca.crt
+    #--peerAddresses peer0.r2.demo.com:8051 \
+    #--tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r2.demo.com/peers/peer0.r2.demo.com/tls/ca.crt
 }
 
 function afterCommit(){
@@ -150,8 +150,8 @@ function invoke(){
     -n ${CHAINCODE_NAME} \
     --peerAddresses peer0.r1.demo.com:7051 \
     --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r1.demo.com/peers/peer0.r1.demo.com/tls/ca.crt \
-    --peerAddresses peer0.r2.demo.com:8051 \
-    --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r2.demo.com/peers/peer0.r2.demo.com/tls/ca.crt \
+    #--peerAddresses peer0.r2.demo.com:8051 \
+    #--tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r2.demo.com/peers/peer0.r2.demo.com/tls/ca.crt \
     -c '{"Args":["Init","a","100","b","100"]}' \
     --waitForEvent
 }
