@@ -8,6 +8,11 @@
 
 **docker-compose.yml里，ORDERER_GENERAL_TLS_XXX相关字段绑定了节点O4与认证文件CA4的关系，从而绑定了O4与企业R4的关系**
 
+执行工程之前，需要下载相关程序，拉去相关镜像:
+1. 执行./download-binary.sh，下载相关程序bin目录
+2. 添加bin目录至环境变量
+3. ./pull-image.sh，拉去fabric相关docker镜像
+
 启动当前网络的步骤如下：
 1. ./network.sh crypto，生成认证相关的文件
 1. ./network.sh genesis，生成系统channel的创世块
