@@ -15,3 +15,7 @@
 1. ./network.sh channel 创建通道C1，生成通道C1的创世块
 1. ./network.sh down 关闭网络
 1. ./network.sh clear 清空生成文件
+
+**channeltx命令生成创建通道的交易tx**
+**channel命令，将创建通道tx发送到order执行，返回channel.block，为通道的创世块。**
+**Hyperledger Fabric的通道相对于bitcoin,ethereum的链，所以每个通道都有对应的创世块。**
