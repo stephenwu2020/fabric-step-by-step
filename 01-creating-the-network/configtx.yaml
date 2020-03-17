@@ -51,8 +51,8 @@ Orderer: &OrdererDefaults
         Consenters:
         - Host: o4.demo.com
           Port: 7050
-          ClientTLSCert: ./organizations/ordererOrganizations/demo.com/orderers/o4.demo.com/tls/server.crt
-          ServerTLSCert: ./organizations/ordererOrganizations/demo.com/orderers/o4.demo.com/tls/server.crt
+          ClientTLSCert: ./organizations/ordererOrganizations/demo.com/orderers/ca4.demo.com/tls/server.crt
+          ServerTLSCert: ./organizations/ordererOrganizations/demo.com/orderers/ca4.demo.com/tls/server.crt
     Addresses:
         - o4.demo.com:7050
     BatchTimeout: 2s

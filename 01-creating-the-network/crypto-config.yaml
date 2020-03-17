@@ -1,5 +1,5 @@
 OrdererOrgs:
-  - Name: R4
+  - Name: CA4
     Domain: demo.com
     Specs:
-      - Hostname: o4
+      - Hostname: ca4
