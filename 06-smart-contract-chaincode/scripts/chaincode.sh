@@ -38,8 +38,9 @@ function package(){
     echo "pkg already exist"
   else
     echo "fetch go dependency"
-    cd /opt/gopath/src/github.com/hyperledger/fabric-samples/chaincode/abstore/go/
-    go mod vendor
+    pushd /opt/gopath/src/github.com/stephenwu2020/fabric-chaincode-sample/chaincode/sacc/go/
+    GO111MODULE=on go mod vendor
+    popd
 
     echo "package chaincode"
     peer lifecycle chaincode package ${CHAINCODE_NAME}.tar.gz \
@@ -186,7 +187,7 @@ elif [ "$MODE" == "start" ]; then
   commit
   afterCommit
   invoke
-  #query
+  query
 else        
   help
   exit 1
