@@ -13,7 +13,7 @@ R1CRT=/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrgan
 
 # r2 env
 R2MSP=/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r2.demo.com/users/Admin@r2.demo.com/msp
-R2ADDR=peer0.r2.demo.com:8051
+R2ADDR=peer0.r2.demo.com:7051
 R2MSPID="R2"
 R2CRT=/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r2.demo.com/peers/peer0.r2.demo.com/tls/ca.crt 
 
@@ -132,7 +132,7 @@ function commit(){
     --cafile $CAFILE \
     --peerAddresses peer0.r1.demo.com:7051 \
     --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r1.demo.com/peers/peer0.r1.demo.com/tls/ca.crt \
-    --peerAddresses peer0.r2.demo.com:8051 \
+    --peerAddresses peer0.r2.demo.com:7051 \
     --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r2.demo.com/peers/peer0.r2.demo.com/tls/ca.crt
 }
 
@@ -150,7 +150,7 @@ function invoke(){
     -n ${CHAINCODE_NAME} \
     --peerAddresses peer0.r1.demo.com:7051 \
     --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r1.demo.com/peers/peer0.r1.demo.com/tls/ca.crt \
-    --peerAddresses peer0.r2.demo.com:8051 \
+    --peerAddresses peer0.r2.demo.com:7051 \
     --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r2.demo.com/peers/peer0.r2.demo.com/tls/ca.crt \
     -c '{"Args":["Init","a","100","b","100"]}' \
     --waitForEvent

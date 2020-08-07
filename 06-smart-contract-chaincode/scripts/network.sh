@@ -31,7 +31,7 @@ function genChanTx(){
   # channel tx
   ${CONFIGTXGEN} -profile CC1 -outputCreateChannelTx ./channel-artifacts/${CHANNEL_NAME}.tx -channelID $CHANNEL_NAME
   # r1 anchor tx
-  ${CONFIGTXGEN}-profile CC1 \
+  ${CONFIGTXGEN} -profile CC1 \
     -outputAnchorPeersUpdate ./channel-artifacts/R1MSPanchors.tx \
     -channelID $CHANNEL_NAME \
     -asOrg R1
