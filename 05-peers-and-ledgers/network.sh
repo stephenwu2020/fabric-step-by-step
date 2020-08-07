@@ -15,6 +15,7 @@ function help(){
   echo "  - genesis"
   echo "  - channeltx"
   echo "  - channel"
+  echo "  - join"
   echo "  - anchor"
   echo "  - channelinfo"
   echo "  - up"
@@ -38,8 +39,7 @@ function genChanTx(){
 
 function createChan(){
   docker exec \
-    -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/r1.demo.com/users/Admin@r1.demo.com/msp" \
-    peer0.r1.demo.com peer channel create \
+    cli peer channel create \
     -o o4.demo.com:7050 \
     -c $CHANNEL_NAME \
     -f /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/${CHANNEL_NAME}.tx \
@@ -51,16 +51,15 @@ function createChan(){
 function joinChan(){
   # join
   docker exec \
-    -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/r1.demo.com/users/Admin@r1.demo.com/msp" \
-    peer0.r1.demo.com peer channel join \
+    cli peer channel join \
     -b /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/${CHANNEL_NAME}.block
   # show info
   showChanInfo
 }
 
 function showChanInfo(){
-  docker exec peer0.r1.demo.com peer channel list
-  docker exec peer0.r1.demo.com peer channel getinfo -c ${CHANNEL_NAME}
+  docker exec cli peer channel list
+  docker exec cli peer channel getinfo -c ${CHANNEL_NAME}
 }
 
 function setAnchor(){
@@ -71,8 +70,7 @@ function setAnchor(){
     -asOrg R1
   # anchor update
   docker exec \
-    -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/r1.demo.com/users/Admin@r1.demo.com/msp" \
-    peer0.r1.demo.com peer channel update \
+    cli peer channel update \
     -o o4.demo.com:7050 \
     -c $CHANNEL_NAME \
     -f /opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts/R1MSPanchors.tx \
