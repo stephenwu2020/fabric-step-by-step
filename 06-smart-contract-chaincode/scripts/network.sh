@@ -2,8 +2,9 @@
 
 MODE=$1
 CHANNEL_NAME="c1"
-TAG="2.0.0"
 FABRIC_CFG_PATH=$PWD
+CRYPTOGEN=../bin/cryptogen
+CONFIGTXGEN=../bin/configtxgen
 
 function help(){
   echo "Usage: "
@@ -19,34 +20,34 @@ function help(){
 }
 
 function genCrypto(){
-  cryptogen generate --config=./crypto-config.yaml --output="organizations"
+  ${CRYPTOGEN} generate --config=./crypto-config.yaml --output="organizations"
 }
 
 function genGenesis(){
-  configtxgen -profile NC4 -channelID ordererchannel -outputBlock ./system-genesis-block/genesis.block
+  ${CONFIGTXGEN} -profile NC4 -channelID ordererchannel -outputBlock ./system-genesis-block/genesis.block
 }
 
 function genChanTx(){
   # channel tx
-  configtxgen -profile CC1 -outputCreateChannelTx ./channel-artifacts/${CHANNEL_NAME}.tx -channelID $CHANNEL_NAME
+  ${CONFIGTXGEN} -profile CC1 -outputCreateChannelTx ./channel-artifacts/${CHANNEL_NAME}.tx -channelID $CHANNEL_NAME
   # r1 anchor tx
-  configtxgen -profile CC1 \
+  ${CONFIGTXGEN}-profile CC1 \
     -outputAnchorPeersUpdate ./channel-artifacts/R1MSPanchors.tx \
     -channelID $CHANNEL_NAME \
     -asOrg R1
   # r2 anchor tx
-  configtxgen -profile CC1 \
+  ${CONFIGTXGEN} -profile CC1 \
     -outputAnchorPeersUpdate ./channel-artifacts/R2MSPanchors.tx \
     -channelID $CHANNEL_NAME \
     -asOrg R2
 }
 
 function networkUp(){
-  IMAGE_TAG=$TAG docker-compose up -d
+  docker-compose up -d
 }
 
 function networkDown(){
-  IMAGE_TAG=$TAG docker-compose down
+  docker-compose down
 }
 
 function clear(){

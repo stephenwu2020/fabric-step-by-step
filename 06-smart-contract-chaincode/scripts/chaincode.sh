@@ -4,7 +4,6 @@ MODE=$1
 CHANNEL_NAME="c1"
 CHAINCODE_NAME="mycc"
 CAFILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/ordererOrganizations/demo.com/orderers/o4.demo.com/msp/tlscacerts/tlsca.demo.com-cert.pem
-TAG="2.0.0"
 
 # r1 env
 R1MSP=/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations/peerOrganizations/r1.demo.com/users/Admin@r1.demo.com/msp
@@ -38,7 +37,7 @@ function package(){
     echo "pkg already exist"
   else
     echo "fetch go dependency"
-    pushd /opt/gopath/src/github.com/stephenwu2020/fabric-chaincode-sample/chaincode/sacc/go/
+    pushd /opt/gopath/src/github.com/hyperledger/fabric-samples/chaincode/abstore/go
     GO111MODULE=on go mod vendor
     popd
 
@@ -46,7 +45,7 @@ function package(){
     peer lifecycle chaincode package ${CHAINCODE_NAME}.tar.gz \
       --path github.com/hyperledger/fabric-samples/chaincode/abstore/go/ \
       --lang golang \
-      --label fabcar_1
+      --label abstore_1
 
     cp ${CHAINCODE_NAME}.tar.gz /opt/gopath/src/github.com/hyperledger/fabric/peer/pkg
   fi
