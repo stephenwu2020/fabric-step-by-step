@@ -1,10 +1,11 @@
 #!/bin/bash
 
 MODE=$1
+CRYPTOGEN=../bin/cryptogen
+CONFIGTXGEN=../bin/configtxgen
 CHANNEL_NAME="c1"
 FABRIC_CFG_PATH=$PWD
 CAFILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/demo.com/orderers/o4.demo.com/msp/tlscacerts/tlsca.demo.com-cert.pem
-TAG="2.0.0"
 
 function help(){
   echo "Usage: "
@@ -24,15 +25,15 @@ function help(){
 }
 
 function genCrypto(){
-  cryptogen generate --config=./crypto-config.yaml --output="organizations"
+  ${CRYPTOGEN} generate --config=./crypto-config.yaml --output="organizations"
 }
 
 function genGenesis(){
-  configtxgen -profile NC4 -channelID ordererchannel -outputBlock ./system-genesis-block/genesis.block
+  ${CONFIGTXGEN} -profile NC4 -channelID ordererchannel -outputBlock ./system-genesis-block/genesis.block
 }
 
 function genChanTx(){
-  configtxgen -profile CC1 -outputCreateChannelTx ./channel-artifacts/${CHANNEL_NAME}.tx -channelID $CHANNEL_NAME
+  ${CONFIGTXGEN} -profile CC1 -outputCreateChannelTx ./channel-artifacts/${CHANNEL_NAME}.tx -channelID $CHANNEL_NAME
 }
 
 function createChan(){
@@ -82,11 +83,11 @@ function setAnchor(){
 }
 
 function networkUp(){
-  IMAGE_TAG=$TAG docker-compose up -d
+  docker-compose up -d
 }
 
 function networkDown(){
-  IMAGE_TAG=$TAG docker-compose down
+  docker-compose down
 }
 
 function clear(){
